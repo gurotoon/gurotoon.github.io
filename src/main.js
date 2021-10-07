@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 
 Vue.use(VuePageTransition)
 Vue.use(VueAnalytics, {
-  id: 'G-XLPX8QNKSM',
+  id: 'UA-209669899-1',
   router
 })
 
