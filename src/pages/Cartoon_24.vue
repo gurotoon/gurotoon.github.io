@@ -2,12 +2,7 @@
   <div>
     <h2>끝까지 읽어주셔서<br>감사합니다</h2>
     <div id="buttons">
-      <a id="create-kakao-link-btn" href="javascript:sendLink();">
-        <img
-            src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-        />
-      </a>
-      <button>나의 직장 내 괴롭힘 피해경험 공유하기</button>
+      <button @click="share">나의 직장 내 괴롭힘 피해경험 공유하기</button>
     </div>
     <div class="fb-share-button" data-href="https://jykim99.github.io/gurotoon_production/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjykim99.github.io%2Fgurotoon_production%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유</a></div>
   </div>
@@ -18,20 +13,24 @@
 export default {
   name: "Cartoon_24",
   methods: {
+    share () {
+      Kakao.Link.sendDefault({
+        objectType: 'text',
+        text:
+            '구로툰 공유 테스트',
+        link: {
+          mobileWebUrl:
+              'http://www.gurotoon.kro.kr',
+          webUrl:
+              'http://www.gurotoon.kro.kr',
+        },
+      })
+    }
   },
-  mounted() {
-    this.$kakao.Link.createDefaultButton({
-      container: '#create-kakao-link-btn',
-      objectType: 'text',
-      text:
-          '구로툰 공유 테스트',
-      link: {
-        mobileWebUrl:
-            'http://www.gurotoon.kro.kr',
-        webUrl:
-            'http://www.gurotoon.kro.kr',
-      },
-    })
+  beforeCreate() {
+    const apiKey = 'cf8031d4ae257eff395eae36c0ed5e8a'
+    Kakao.init(apiKey)
+    console.log(Kakao.isInitialized())
   },
   head: {
     script: [
