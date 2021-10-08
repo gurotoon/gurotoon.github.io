@@ -2,7 +2,7 @@
   <div>
     <h2>끝까지 읽어주셔서<br>감사합니다</h2>
     <div id="buttons">
-      <a id="create-kakao-link-btn" href="javascript:;">
+      <a id="create-kakao-link-btn" href="javascript:sendLink();">
         <img
             src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
         />
