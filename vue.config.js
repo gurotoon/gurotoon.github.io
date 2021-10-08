@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: '/gurotoon',
+    publicPath: '/gurotoon_production',
     outputDir: 'docs',
     lintOnSave: false
 }
