@@ -21,9 +21,9 @@ export default {
             '구로툰 공유 테스트',
         link: {
           mobileWebUrl:
-              'https://jykim99.github.io/gurotoon_production/',
+              'http://www.gurotoon.kro.kr',
           webUrl:
-              'https://jykim99.github.io/gurotoon_production/',
+              'http://www.gurotoon.kro.kr',
         },
       })
     }
