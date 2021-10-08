@@ -5,7 +5,7 @@
       <button @click="kakao_share">지인들에게 링크 공유하기</button>
       <button>나의 직장 내 괴롭힘 피해경험 공유하기</button>
     </div>
-    <div class="fb-share-button" data-href="https://www.gurotoon.kro.kr/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.gurotoon.kro.kr%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유</a></div>
+    <div class="fb-share-button" data-href="https://jykim99.github.io/gurotoon_production/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjykim99.github.io%2Fgurotoon_production%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유</a></div>
   </div>
 </template>
 
@@ -21,9 +21,9 @@ export default {
             '구로툰 공유 테스트',
         link: {
           mobileWebUrl:
-              'www.gurotoon.kro.kr/',
+              'https://jykim99.github.io/gurotoon_production/',
           webUrl:
-              'www.gurotoon.kro.kr/',
+              'https://jykim99.github.io/gurotoon_production/',
         },
       })
     }
