@@ -11,7 +11,7 @@ export default {
   name: "Cartoon_1",
   methods: {
     click() {
-      router.push({path: '/23'});
+      router.push({path: '/24'});
     }
   }
 }

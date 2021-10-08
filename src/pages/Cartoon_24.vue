@@ -1,17 +1,18 @@
 <template>
   <div>
-    <h2>본 컨텐츠가<br>직장 내 괴롭힘을 이해하는 데<br>도움이 되었나요?</h2>
+    <h2>끝까지 읽어주셔서<br>감사합니다</h2>
     <div id="buttons">
-      <button>네,도움이 되었어요:)</button>
-      <button>아뇨,별로 안됐어요:(</button>
+      <button @click="kakao_share">지인들에게 링크 공유하기</button>
+      <button>나의 직장 내 괴롭힘 피해경험 공유하기</button>
     </div>
+    <div class="fb-share-button" data-href="https://www.gurotoon.kro.kr/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.gurotoon.kro.kr%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유</a></div>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: "Cartoon_23",
+  name: "Cartoon_24",
   methods: {
     kakao_share() {
       this.$kakao.Link.sendDefault({
@@ -26,6 +27,15 @@ export default {
         },
       })
     }
+  },
+  head: {
+    script: [
+      {
+        type: 'text/javascript',
+        src: 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0',
+        async: true,
+      }
+    ]
   }
 }
 </script>

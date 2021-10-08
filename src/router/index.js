@@ -27,6 +27,7 @@ import Cartoon_22 from "@/pages/Cartoon_22";
 import Cartoon_23 from "@/pages/Cartoon_23";
 import Cartoon_13_1 from "@/pages/Cartoon_13_1";
 import Cartoon_13_2 from "@/pages/Cartoon_13_2";
+import Cartoon_24 from "@/pages/Cartoon_24";
 
 Vue.use(VueRouter)
 
@@ -159,6 +160,11 @@ const routes  = [
         path: '/23',
         name: 'Cartoon_23',
         component: Cartoon_23,
+    },
+    {
+        path: '/24',
+        name: 'Cartoon_24',
+        component: Cartoon_24,
     },
 
 
