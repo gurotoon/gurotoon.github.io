@@ -15,7 +15,7 @@ Vue.use(VueAnalytics, {
   router
 })
 
-const apiKey = '7c5082e78920d40539efce8db5b36c27'
+const apiKey = 'cf8031d4ae257eff395eae36c0ed5e8a'
 Vue.use(VueKakaoSdk, { apiKey }) // apiKey 를 반드시 입력해줘야한다.
 
 Vue.use(VueHead)
