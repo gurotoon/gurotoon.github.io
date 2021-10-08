@@ -21,9 +21,9 @@ export default {
             '구로툰 공유 테스트',
         link: {
           mobileWebUrl:
-              'https://www.gurotoon.kro.kr/',
+              'www.gurotoon.kro.kr/',
           webUrl:
-              'https://www.gurotoon.kro.kr/',
+              'www.gurotoon.kro.kr/',
         },
       })
     }
