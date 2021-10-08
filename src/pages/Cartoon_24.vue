@@ -20,9 +20,9 @@ export default {
             '구로툰 공유 테스트',
         link: {
           mobileWebUrl:
-              'http://www.gurotoon.kro.kr',
+              'http://localhost:8080/gurotoon_production/',
           webUrl:
-              'http://www.gurotoon.kro.kr',
+              'http://localhost:8080/gurotoon_production/',
         },
       })
     }
