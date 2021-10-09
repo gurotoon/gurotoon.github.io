@@ -28,7 +28,7 @@ export default {
     }
   },
   beforeCreate() {
-    const apiKey = 'cf8031d4ae257eff395eae36c0ed5e8a'
+    const apiKey = '7c5082e78920d40539efce8db5b36c27'
     Kakao.init(apiKey)
     console.log(Kakao.isInitialized())
   },
