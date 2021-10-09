@@ -14,15 +14,16 @@ export default {
   name: "Cartoon_24",
   methods: {
     share () {
+      console.log(Kakao.isInitialized())
       Kakao.Link.sendDefault({
         objectType: 'text',
         text:
             '구로툰 공유 테스트',
         link: {
           mobileWebUrl:
-              'http://localhost:8080/gurotoon_production/',
+              'https://gurotoon.github.io/',
           webUrl:
-              'http://localhost:8080/gurotoon_production/',
+              'https://gurotoon.github.io/',
         },
       })
     }
