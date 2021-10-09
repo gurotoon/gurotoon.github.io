@@ -3,9 +3,7 @@ import App from './App.vue'
 import VueAnalytics from "vue-analytics";
 import router from './router'
 import VueHead from "vue-head";
-import LoadScript from 'vue-plugin-load-script';
-
-Vue.use(LoadScript);
+import VueSocialSharing from 'vue-social-sharing'
 
 
 import VuePageTransition from 'vue-page-transition'
@@ -18,6 +16,7 @@ Vue.use(VueAnalytics, {
   router
 })
 
+Vue.use(VueSocialSharing);
 
 
 Vue.use(VueHead)
