@@ -1,7 +1,9 @@
 <template>
   <div>
-    <img id="cartoon1_back" alt="cartoon1_back" src="https://testbkim.s3.ap-northeast-2.amazonaws.com/cartoon1_back.jpeg">\
-    <img v-show="image1_show" id="cartoon1_img1" alt="cartoon1_img1" src="https://testbkim.s3.ap-northeast-2.amazonaws.com/cartoon1_img1.png">
+    <img class="img_full" id="cartoon1_back" alt="cartoon1_back" src="https://testbkim.s3.ap-northeast-2.amazonaws.com/cartoon1_back.jpeg">
+    <transition name="fade">
+      <img class="img_full" @click="click" v-show="image1_show" id="cartoon1_img1" alt="cartoon1_img1" src="https://testbkim.s3.ap-northeast-2.amazonaws.com/cartoon1_img1.png">
+    </transition>
   </div>
 </template>
 
@@ -12,7 +14,7 @@ export default {
   name: "Cartoon_1",
   methods: {
     click() {
-      router.push({path: '/24'});
+      router.push({path: '/23'});
     }
   },
   data() {
@@ -27,13 +29,7 @@ export default {
 </script>
 
 <style scoped>
-img {
 
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100vh;
-}
 #cartoon1_back {
   z-index: 0;
 }

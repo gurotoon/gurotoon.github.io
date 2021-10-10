@@ -28,5 +28,7 @@ export default {
     top: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    white-space: nowrap;
+
   }
 </style>

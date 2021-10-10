@@ -30,5 +30,19 @@ form,fieldset,input,textarea,p,blockquote,th,td {
   margin: 0;
 }
 
+.img_full {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 
 </style>
