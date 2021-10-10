@@ -20,20 +20,14 @@ export default {
     script: [
       {
         type: 'text/javascript',
-        src: 'wpac_init = window.wpac_init || [];\n' +
-            '          wpac_init.push({widget: \'Rating\', id: 32504});\n' +
-            '          (function() {\n' +
-            '              if (\'WIDGETPACK_LOADED\' in window) return;\n' +
-            '              WIDGETPACK_LOADED = true;\n' +
-            '              var mc = document.createElement(\'script\');\n' +
-            '              mc.type = \'text/javascript\';\n' +
-            '              mc.async = true;\n' +
-            '              mc.src = \'https://embed.widgetpack.com/widget.js\';\n' +
-            '              var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(mc, s.nextSibling);\n' +
-            '          })();',
+        src: 'https://embed.widgetpack.com/widget.js',
         async: true,
       }
     ]
+  },
+  beforeCreate() {
+    let wpac_init = window.wpac_init || [];
+    wpac_init.push({widget: 'Rating', id: 32504});
   }
 }
 </script>
@@ -57,7 +51,7 @@ export default {
     margin: 1vh;
     border-radius: 15px;
   }
-  .rw-ui-container{
+  #wpac-rating{
     position: absolute;
     top: 0;
     left: 0;

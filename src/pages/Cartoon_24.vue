@@ -47,15 +47,6 @@ export default {
     Kakao.init(apiKey)
     console.log(Kakao.isInitialized())
   },
-  head: {
-    script: [
-      {
-        type: 'text/javascript',
-        src: 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0',
-        async: true,
-      }
-    ]
-  }
 }
 </script>
 
