@@ -4,17 +4,21 @@
     <a href="https://widgetpack.com" class="wpac-cr">Star Rating WIDGET PACK</a>
     <h2>본 컨텐츠가<br>직장 내 괴롭힘을 이해하는 데<br>도움이 되었나요?</h2>
     <div id="buttons">
-      <button>네,도움이 되었어요:)</button>
+      <button @click="next">네,도움이 되었어요:)</button>
       <button>아뇨,별로 안됐어요:(</button>
     </div>
   </div>
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
   name: "Cartoon_23",
   methods: {
-    //todo
+    move() {
+      router.push({path: '/24'});
+    }
   },
   head: {
     script: [
@@ -28,6 +32,10 @@ export default {
   beforeCreate() {
     let wpac_init = window.wpac_init || [];
     wpac_init.push({widget: 'Rating', id: 32504});
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      window.WIDGETPACK_LOADED = true;
+    })();
   }
 }
 </script>
