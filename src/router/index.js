@@ -47,6 +47,7 @@ const routes  = [
         path: '/2',
         name: 'Cartoon_2',
         component: Cartoon_2,
+        meta: { transition: 'fade'}
     },
     {
         path: '/3_1',

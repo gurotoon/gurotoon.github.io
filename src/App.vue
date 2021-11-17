@@ -35,6 +35,12 @@ form,fieldset,input,textarea,p,blockquote,th,td {
   left: 50%;
   transform: translateX(-50%);
   height: 100vh;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .fade-enter-active, .fade-leave-active {
