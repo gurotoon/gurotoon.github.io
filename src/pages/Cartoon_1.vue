@@ -115,6 +115,7 @@ export default {
 }
 
 #cube {
+  z-index: -1;
   position: absolute;
   left: 50%;
   top: 50%;

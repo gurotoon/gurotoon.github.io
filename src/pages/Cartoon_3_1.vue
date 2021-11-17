@@ -77,4 +77,12 @@ export default {
   height: 100%;
 }
 
+#cube {
+  z-index: -1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 </style>
