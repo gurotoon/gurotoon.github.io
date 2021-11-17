@@ -13,12 +13,14 @@
     <transition name="fade">
       <img class="img_full" v-show="image4_show" id="cartoon1_img4" alt="cartoon1_img4" src="../assets/images/3/3화_3.jpg">
     </transition>
-    <button class="btn" v-show="image4_show" id="btn_3_1" alt="btn_3_1"></button>
-    <button class="btn" v-show="image4_show" id="btn_3_2" alt="btn_3_2"></button>
+    <button @click="go_3_1" class="btn" v-show="image4_show" id="btn_3_1" alt="btn_3_1"></button>
+    <button @click="go_3_2" class="btn" v-show="image4_show" id="btn_3_2" alt="btn_3_2"></button>
   </div>
 </template>
 
 <script>
+import router from "@/router";
+
 
 export default {
   name: "Cartoon_1",
@@ -32,8 +34,11 @@ export default {
     showImage4() {
       this.image4_show = true
     },
-    next() {
-      //todo
+    go_3_1(){
+      router.replace('/3_1')
+    },
+    go_3_2(){
+      router.replace('/3_2')
     }
   },
   data() {
@@ -81,7 +86,7 @@ export default {
 }
 
 .btn {
-  z-index: 6;
+  z-index: 5;
   background-color: transparent;
   border: none;
 }

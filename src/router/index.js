@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from "@/pages/Main";
 import Cartoon_1 from "@/pages/Cartoon_1";
-import Cartoon_2 from "@/pages/Cartoon_2";
 import Cartoon_3_1 from "@/pages/Cartoon_3_1";
 import Cartoon_3_2 from "@/pages/Cartoon_3_2";
 import Cartoon_4 from "@/pages/Cartoon_4";
@@ -44,15 +43,10 @@ const routes  = [
         meta: { transition: 'overlay-up-down' },
     },
     {
-        path: '/2',
-        name: 'Cartoon_2',
-        component: Cartoon_2,
-        meta: { transition: 'fade'}
-    },
-    {
         path: '/3_1',
         name: 'Cartoon_3_1',
         component: Cartoon_3_1,
+        meta: { transition: 'fade'}
     },
     {
         path: '/3_2',
