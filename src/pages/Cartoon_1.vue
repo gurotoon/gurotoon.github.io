@@ -22,6 +22,7 @@
 
 <script>
 import router from "@/router";
+import vueLoadImage from 'vue-load-image'
 
 
 export default {
@@ -56,6 +57,9 @@ export default {
     window.addEventListener('load',function(){
       setTimeout(scrollTo,0,0,1);
     },false);
+  },
+  components: {
+    vueLoadImage
   }
 }
 </script>
