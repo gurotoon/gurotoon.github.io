@@ -81,7 +81,7 @@ export default {
 }
 
 .btn {
-  z-index: 5;
+  z-index: 6;
   background-color: transparent;
   border: none;
 }
