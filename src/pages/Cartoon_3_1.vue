@@ -1,5 +1,6 @@
 <template>
   <div>
+    <cube-spin id="cube"></cube-spin>
     <img @click="showImage1" class="img_full" id="cartoon1_back" alt="cartoon1_back" src="../assets/images/3-1/3화_3-1(1).jpg">
     <transition name="fade">
       <img class="img_full" @click="showImage2" v-show="image1_show" id="cartoon1_img1" alt="cartoon1_img1" src="../assets/images/3-1/3화_3-1(2).jpg">
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import CubeSpin from 'vue-loading-spinner/src/components/RotateSquare'
 // import router from "@/router";
 
 
@@ -45,6 +47,9 @@ export default {
     window.addEventListener('load',function(){
       setTimeout(scrollTo,0,0,1);
     },false);
+  },
+  components: {
+    CubeSpin
   }
 }
 </script>

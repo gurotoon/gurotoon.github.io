@@ -1,28 +1,27 @@
 <template>
   <div>
-    <vue-load-image>
-      <img class="img_full" id="cartoon1_back" alt="cartoon1_back" src="../assets/images/2/3화_2_수정(1).jpg">
-      <transition name="fade">
-        <img class="img_full" @click="showImage2" v-show="image1_show" id="cartoon1_img1" alt="cartoon1_img1" src="../assets/images/2/3화_2_수정(3).jpg">
-      </transition>
-      <transition name="fade">
-        <img class="img_full" @click="showImage3" v-show="image2_show" id="cartoon1_img2" alt="cartoon1_img2" src="../assets/images/2/3화_2_수정(2).jpg">
-      </transition>
-      <transition name="fade">
-        <img class="img_full" @click="showImage4" v-show="image3_show" id="cartoon1_img3" alt="cartoon1_img3" src="../assets/images/2/3화_2(2).jpg">
-      </transition>
-      <transition name="fade">
-        <img class="img_full" v-show="image4_show" id="cartoon1_img4" alt="cartoon1_img4" src="../assets/images/3/3화_3.jpg">
-      </transition>
-      <button @click="go_3_1" class="btn" v-show="image4_show" id="btn_3_1" alt="btn_3_1"></button>
-      <button @click="go_3_2" class="btn" v-show="image4_show" id="btn_3_2" alt="btn_3_2"></button>
-    </vue-load-image>
+    <cube-spin id="cube"></cube-spin>
+    <img class="img_full" id="cartoon1_back" alt="cartoon1_back" src="../assets/images/2/3화_2_수정(1).jpg">
+    <transition name="fade">
+      <img class="img_full" @click="showImage2" v-show="image1_show" id="cartoon1_img1" alt="cartoon1_img1" src="../assets/images/2/3화_2_수정(3).jpg">
+    </transition>
+    <transition name="fade">
+      <img class="img_full" @click="showImage3" v-show="image2_show" id="cartoon1_img2" alt="cartoon1_img2" src="../assets/images/2/3화_2_수정(2).jpg">
+    </transition>
+    <transition name="fade">
+      <img class="img_full" @click="showImage4" v-show="image3_show" id="cartoon1_img3" alt="cartoon1_img3" src="../assets/images/2/3화_2(2).jpg">
+    </transition>
+    <transition name="fade">
+      <img class="img_full" v-show="image4_show" id="cartoon1_img4" alt="cartoon1_img4" src="../assets/images/3/3화_3.jpg">
+    </transition>
+    <button @click="go_3_1" class="btn" v-show="image4_show" id="btn_3_1" alt="btn_3_1"></button>
+    <button @click="go_3_2" class="btn" v-show="image4_show" id="btn_3_2" alt="btn_3_2"></button>
   </div>
 </template>
 
 <script>
 import router from "@/router";
-import vueLoadImage from 'vue-load-image'
+import CubeSpin from 'vue-loading-spinner/src/components/RotateSquare'
 
 
 export default {
@@ -59,7 +58,7 @@ export default {
     },false);
   },
   components: {
-    vueLoadImage
+    CubeSpin
   }
 }
 </script>
@@ -113,6 +112,13 @@ export default {
   top: 41%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+#cube {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 </style>
