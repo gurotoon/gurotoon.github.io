@@ -1,5 +1,5 @@
 <template>
-  <div @click="click"><h1>화면을 터치해주세요.</h1></div>
+  <div @click="click"><h1>화면을 터치해주세요.3</h1></div>
 </template>
 
 <script>
