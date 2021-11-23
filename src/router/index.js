@@ -3,9 +3,6 @@ import VueRouter from 'vue-router'
 import Main from "@/pages/Main";
 import Cartoon_1 from "@/pages/Cartoon_1";
 import Cartoon_7 from "@/pages/Cartoon_7";
-import Cartoon_8 from "@/pages/Cartoon_8";
-import Cartoon_9 from "@/pages/Cartoon_9";
-import Cartoon_10 from "@/pages/Cartoon_10";
 import Cartoon_11 from "@/pages/Cartoon_11";
 import Cartoon_12 from "@/pages/Cartoon_12";
 import Cartoon_13 from "@/pages/Cartoon_13";
@@ -41,19 +38,8 @@ const routes  = [
         path: '/7',
         name: 'Cartoon_7',
         component: Cartoon_7,
-    },{
-        path: '/8',
-        name: 'Cartoon_8',
-        component: Cartoon_8,
-    },{
-        path: '/9',
-        name: 'Cartoon_9',
-        component: Cartoon_9,
-    },{
-        path: '/10',
-        name: 'Cartoon_10',
-        component: Cartoon_10,
-    },{
+    },
+    {
         path: '/11',
         name: 'Cartoon_11',
         component: Cartoon_11,

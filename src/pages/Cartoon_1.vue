@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <img class="img_full" v-show="image_1_1_show" id="cartoon1_back" alt="cartoon1_back" src="../assets/images/background/3화_2_수정(1).jpg">
     <transition name="fade">
       <img class="img_full" @click="showImage2" v-show="image_1_2_show" id="cartoon1_img1" alt="cartoon1_img1" src="../assets/images/scripts/3화_2수정(3).png">
@@ -70,6 +69,64 @@
     <button @click="goback_5" class="btn" v-show="image_5_5_show" id="btn_5" alt="btn_5"></button>
     <button @click="go_7" class="btn" v-show="image_5_5_show" id="btn_7" alt="btn_7"></button>
 
+    <transition name="fade">
+      <img @click="go_8" class="img_full" v-show="image_7_1_show" id="cartoon_7_img1" alt="cartoon1_back" src="../assets/images/background/3화_7.jpg">
+    </transition>
+
+    <transition name="fade">
+      <img @click="showImage_8_2" class="img_full" v-show="image_8_1_show" id="cartoon_8_img1" alt="cartoon1_back" src="../assets/images/background/3화_8(1).jpg">
+    </transition>
+    <transition name="fade">
+      <img @click="showImage_8_3" class="img_full" v-show="image_8_2_show" id="cartoon_8_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_8(2).png">
+    </transition>
+    <transition name="fade">
+      <img @click="go_9" class="img_full" v-show="image_8_3_show" id="cartoon_8_img3" alt="cartoon1_back" src="../assets/images/scripts/3화_8(3).png">
+    </transition>
+
+    <transition name="fade">
+      <img @click="showImage_9_2" class="img_full" v-show="image_9_1_show" id="cartoon_9_img1" alt="cartoon1_back" src="../assets/images/background/9_배경.jpeg">
+    </transition>
+    <transition name="fade">
+      <img @click="showImage_9_3" class="img_full" v-show="image_9_2_show" id="cartoon_9_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_9(1).png">
+    </transition>
+    <transition name="fade">
+      <img @click="showImage_9_4" class="img_full" v-show="image_9_3_show" id="cartoon_9_img3" alt="cartoon1_back" src="../assets/images/scripts/3화_9(2).png">
+    </transition>
+    <transition name="fade">
+      <img @click="go_10" class="img_full" v-show="image_9_4_show" id="cartoon_9_img4" alt="cartoon1_back" src="../assets/images/scripts/3화_9(3).png">
+    </transition>
+
+    <transition name="fade">
+      <img @click="showImage_10_2" class="img_full" v-show="image_10_1_show" id="cartoon_10_img1" alt="cartoon1_back" src="../assets/images/background/3화_10(1).jpg">
+    </transition>
+    <transition name="fade">
+      <img @click="showImage_10_3" class="img_full" v-show="image_10_2_show" id="cartoon_10_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_10(2)_수정.png">
+    </transition>
+    <transition name="fade">
+      <img @click="showImage_10_4" class="img_full" v-show="image_10_3_show" id="cartoon_10_img3" alt="cartoon1_back" src="../assets/images/scripts/3화_10(3)_수정.png">
+    </transition>
+    <transition name="fade">
+      <img @click="showImage_10_5" class="img_full" v-show="image_10_4_show" id="cartoon_10_img4" alt="cartoon1_back" src="../assets/images/scripts/3화_10(4)_수정.png">
+    </transition>
+    <transition name="fade">
+      <img @click="showImage_10_6" class="img_full" v-show="image_10_5_show" id="cartoon_10_img5" alt="cartoon1_back" src="../assets/images/scripts/3화_10(5)_수정.png">
+    </transition>
+    <transition name="fade">
+      <img @click="go_11" class="img_full" v-show="image_10_6_show" id="cartoon_10_img6" alt="cartoon1_back" src="../assets/images/scripts/3화_10(6)_수정.png">
+    </transition>
+
+    <transition name="fade">
+      <img class="img_full" v-show="image_11_1_show" id="cartoon_11_img1" alt="cartoon1_back" src="../assets/images/background/3화_11(1).jpg">
+    </transition>
+    <button @click="go_12" class="btn" v-show="image_11_1_show" id="btn_12" alt="btn_12"></button>
+
+
+    <audio id="background_1" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%B0%EA%B2%BD1.mp3"></audio>
+    <audio id="background_2" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%B0%EA%B2%BD2.mp3"></audio>
+    <audio id="walk_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%9C%EA%B1%B8%EC%9D%8C_short.mp3"></audio>
+    <audio id="alarm_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%9D%A0%EB%A7%81.mp3"></audio>
+    <audio id="kakao_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%B9%B4%ED%86%A1+%EC%B1%84%ED%8C%85%EC%9D%8C.mp3"></audio>
+    <audio id="noise_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%86%8C%EC%9D%8C.mp3"></audio>
   </div>
 </template>
 
@@ -80,9 +137,41 @@ import router from '@/router'
 export default {
   name: "Cartoon_1",
   methods: {
+    fadeIn(element){
+      let audio = document.getElementById(element);
+      audio.play()
+      audio.volume = 0
+      let fadein = setInterval(
+          function() {
+            if (audio.volume < 0.95) {
+              audio.volume = audio.volume + 0.05;
+            }
+            else {
+              clearInterval(fadein);
+            }
+          }, this.interval);
+    },
+    fadeOut(element){
+      let fadeout = setInterval(
+          function() {
+            let audio = document.getElementById(element);
+            if (audio.volume > 0.1) {
+              audio.volume = audio.volume - 0.1;
+            }
+            else {
+              audio.pause()
+              clearInterval(fadeout);
+            }
+          }, this.interval);
+    },
+
     showImage2() {
+      let audio = document.getElementById("alarm_sound");
+      audio.play()
+
       this.image_1_3_show = true
       this.image_1_2_show = false
+
     },
     showImage3() {
       this.image_1_4_show = true
@@ -145,6 +234,8 @@ export default {
       this.image_4_2_show = true
     },
     go_5(){
+      this.fadeOut("background_1")
+      this.fadeIn("noise_sound")
       this.image_4_1_show = false
       this.image_4_2_show = false
       setTimeout(() => {
@@ -152,9 +243,6 @@ export default {
       }, 200)
     },
 
-    return_page_show(){
-      //todo
-    },
     showImage_5_2(){
       this.image_5_2_show = true
     },
@@ -171,18 +259,92 @@ export default {
       this.image_5_5_show = true
     },
     goback_5(){
+      let audio = document.getElementById("walk_sound");
+      audio.play()
       this.return_page_show = false
       this.image_5_5_show = false
       this.return_page_show = true
       setTimeout(() => {this.return_page_show = false}, 2000)
     },
     go_7(){
-      //todo
-    }
+      this.fadeOut("noise_sound")
+      this.image_5_1_show = false
+      this.image_5_5_show = false
+      setTimeout(() => {this.image_7_1_show = true}, 200)
+    },
+
+    go_8(){
+      this.fadeIn("background_1")
+      this.image_7_1_show = false
+      setTimeout(() => {this.image_8_1_show = true}, 200)
+    },
+
+    showImage_8_2(){
+      this.image_8_2_show = true
+    },
+    showImage_8_3(){
+      this.image_8_3_show = true
+    },
+    go_9(){
+      this.image_8_1_show = false
+      this.image_8_2_show = false
+      this.image_8_3_show = false
+      setTimeout(() => {this.image_9_1_show = true}, 200)
+    },
+
+    showImage_9_2(){
+      this.image_9_2_show = true
+    },
+    showImage_9_3(){
+      this.image_9_2_show = false
+      this.image_9_3_show = true
+    },
+    showImage_9_4(){
+      this.image_9_4_show = true
+    },
+    go_10(){
+      this.image_9_1_show = false
+      this.image_9_3_show = false
+      this.image_9_4_show = false
+      setTimeout(() => {this.image_10_1_show = true}, 200)
+    },
+
+    showImage_10_2(){
+      this.image_10_2_show = true
+    },
+    showImage_10_3(){
+      this.image_10_3_show = true
+    },
+    showImage_10_4(){
+      this.image_10_4_show = true
+    },
+    showImage_10_5(){
+      this.image_10_5_show = true
+    },
+    showImage_10_6(){
+      this.image_10_6_show = true
+    },
+    go_11(){
+      this.image_10_1_show = false
+      this.image_10_2_show = false
+      this.image_10_3_show = false
+      this.image_10_4_show = false
+      this.image_10_5_show = false
+      this.image_10_6_show = false
+      setTimeout(() => {this.image_11_1_show = true}, 200)
+    },
+
+    go_12(){
+      this.image_11_1_show = false
+      // setTimeout(() => {this.image_12_1_show = true}, 200)
+    },
 
   },
   data() {
     return {
+      vol: 0.2,
+      interval: 200,
+
       image_1_1_show: false,
       image_1_2_show: false,
       image_1_3_show: false,
@@ -208,11 +370,33 @@ export default {
       image_5_5_show:false,
       return_page_show: false,
 
+      image_7_1_show:false,
+
+      image_8_1_show: false,
+      image_8_2_show: false,
+      image_8_3_show: false,
+
+      image_9_1_show: false,
+      image_9_2_show: false,
+      image_9_3_show: false,
+      image_9_4_show: false,
+
+      image_10_1_show:false,
+      image_10_2_show:false,
+      image_10_3_show:false,
+      image_10_4_show:false,
+      image_10_5_show:false,
+      image_10_6_show:false,
+
+      image_11_1_show:false,
+
+
     }
   },
   mounted() {
     setTimeout(() => this.image_1_1_show = true, 500)
     setTimeout(() => this.image_1_2_show = true, 1000)
+    this.fadeIn("background_1")
     window.addEventListener('load',function(){
       setTimeout(scrollTo,0,0,1);
     },false);
@@ -363,6 +547,65 @@ export default {
   width: 100%;
   height: 100%;
 }
+
+#cartoon_8_img1 {
+  z-index: 80;
+}
+
+#cartoon_8_img2 {
+  z-index: 81;
+}
+
+#cartoon_8_img3 {
+  z-index: 82;
+}
+
+#cartoon_9_img1 {
+  z-index: 90;
+}
+#cartoon_9_img2 {
+  z-index: 91;
+}
+#cartoon_9_img3 {
+  z-index: 92;
+}
+#cartoon_9_img4 {
+  z-index: 93;
+}
+
+#cartoon_10_img1 {
+  z-index: 100;
+}
+#cartoon_10_img2 {
+  z-index: 101;
+}
+#cartoon_10_img3 {
+  z-index: 102;
+}
+#cartoon_10_img4 {
+  z-index: 103;
+}
+#cartoon_10_img5 {
+  z-index: 104;
+}
+#cartoon_10_img6 {
+  z-index: 105;
+}
+
+#cartoon_11_img1 {
+  z-index: 110;
+}
+
+#btn_12 {
+  position: absolute;
+  width: 40vh;
+  height: 11%;
+  top: 78%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+}
+
 
 
 </style>
