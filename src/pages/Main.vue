@@ -1,5 +1,7 @@
 <template>
-  <div @click="click"><h1>화면을 터치해주세요.</h1></div>
+  <div @click="click">
+    <img class="img_full" id="main_img" alt="cartoon1_back" src="../assets/images/background/0컷배치예시.jpg">
+  </div>
 </template>
 
 <script>

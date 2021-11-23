@@ -66,11 +66,11 @@
     <transition name="fade">
       <img class="img_full" v-show="image_5_5_show" id="cartoon_5_img5" alt="cartoon_5_img5" src="../assets/images/scripts/3화_6.png">
     </transition>
-    <button @click="goback_5" class="btn" v-show="image_5_5_show" id="btn_5" alt="btn_5"></button>
-    <button @click="go_7" class="btn" v-show="image_5_5_show" id="btn_7" alt="btn_7"></button>
+    <button @click="go_7" class="btn" v-show="image_5_5_show" id="btn_5" alt="btn_5"></button>
+    <button @click="goback_5" class="btn" v-show="image_5_5_show" id="btn_7" alt="btn_7"></button>
 
     <transition name="fade">
-      <img @click="go_8" class="img_full" v-show="image_7_1_show" id="cartoon_7_img1" alt="cartoon1_back" src="../assets/images/background/3화_7.jpg">
+      <img @click="go_8" class="img_full" v-show="image_7_1_show" id="cartoon_7_img1" alt="cartoon1_back" src="../assets/images/background/7컷_수정.jpg">
     </transition>
 
     <transition name="fade">
@@ -116,9 +116,13 @@
     </transition>
 
     <transition name="fade">
-      <img class="img_full" v-show="image_11_1_show" id="cartoon_11_img1" alt="cartoon1_back" src="../assets/images/background/3화_11(1).jpg">
+      <img @click="showImage_11_2" class="img_full" v-show="image_11_1_show" id="cartoon_11_img1" alt="cartoon1_back" src="../assets/images/background/3화_11(1).jpg">
     </transition>
-    <button @click="go_12" class="btn" v-show="image_11_1_show" id="btn_12" alt="btn_12"></button>
+    <transition name="fade">
+      <img class="img_full" v-show="image_11_2_show" id="cartoon_11_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_11(2).png">
+    </transition>
+    <img class="img_full" v-show="image_11_2_show_btn" id="cartoon_11_img3" alt="cartoon1_back" src="../assets/images/scripts/11컷_추가이미지.png">
+    <button @click="go_12" class="btn" v-show="image_11_2_show" id="btn_12" alt="btn_12"></button>
 
     <transition name="fade">
       <img @click="showImage_12_2" class="img_full" v-show="image_12_1_show" id="cartoon_12_img1" alt="cartoon1_back" src="../assets/images/background/3화_12(1).jpg">
@@ -168,11 +172,23 @@
       <img @click="go_14" class="img_full" v-show="image_13_2_2_show" id="cartoon_13_2_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_13-2.png">
     </transition>
 
+    <transition name="fades">
+      <img @click="go_15" v-show="image_14_1_show" class="img_full" id="cartoon_14_img1" alt="cartoon1_back" src="../assets/images/background/3화_14.jpg">
+    </transition>
+
+
     <audio id="background_1" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%B0%EA%B2%BD1.mp3"></audio>
+    <audio id="background_1_2" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%B0%EA%B2%BD1.mp3"></audio>
     <audio id="walk_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%9C%EA%B1%B8%EC%9D%8C_short.mp3"></audio>
     <audio id="alarm_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%9D%A0%EB%A7%81.mp3"></audio>
     <audio id="kakao_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%B9%B4%ED%86%A1+%EC%B1%84%ED%8C%85%EC%9D%8C.mp3"></audio>
+    <audio id="kakao_sound_2" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%B9%B4%ED%86%A1+%EC%B1%84%ED%8C%85%EC%9D%8C.mp3"></audio>
+    <audio id="kakao_sound_3" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%B9%B4%ED%86%A1+%EC%B1%84%ED%8C%85%EC%9D%8C.mp3"></audio>
+
     <audio id="noise_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%86%8C%EC%9D%8C.mp3"></audio>
+    <audio id="koong_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%BF%B5%EC%86%8C%EB%A6%AC.mp3"></audio>
+    <audio id="dal_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%8B%AC%EA%B7%B8%EB%9D%BD%EC%86%8C%EB%A6%AC.mp3"></audio>
+
   </div>
 </template>
 
@@ -321,13 +337,15 @@ export default {
     },
     go_7(){
       this.fadeOut("noise_sound")
+      this.fadeIn("background_1_2")
       this.image_5_1_show = false
       this.image_5_5_show = false
+      let audio = document.getElementById("dal_sound");
+      audio.play()
       setTimeout(() => {this.image_7_1_show = true}, 200)
     },
 
     go_8(){
-      this.fadeIn("background_1")
       this.image_7_1_show = false
       setTimeout(() => {this.image_8_1_show = true}, 200)
     },
@@ -387,8 +405,15 @@ export default {
       setTimeout(() => {this.image_11_1_show = true}, 200)
     },
 
+    showImage_11_2(){
+      this.image_11_2_show = true
+      this.btn_interval =  setInterval(() => {this.image_11_2_show_btn = !this.image_11_2_show_btn}, 350)
+    },
     go_12(){
       this.image_11_1_show = false
+      this.image_11_2_show = false
+      clearInterval(this.btn_interval)
+      this.image_11_2_show_btn = false
       setTimeout(() => {this.image_12_1_show = true}, 200)
     },
 
@@ -398,12 +423,12 @@ export default {
       this.image_12_2_show = true
     },
     showImage_12_3(){
-      let audio = document.getElementById("kakao_sound");
+      let audio = document.getElementById("kakao_sound_2");
       audio.play()
       this.image_12_3_show = true
     },
     showImage_12_4(){
-      let audio = document.getElementById("kakao_sound");
+      let audio = document.getElementById("kakao_sound_3");
       audio.play()
       this.image_12_4_show = true
     },
@@ -451,18 +476,26 @@ export default {
       this.image_13_2_2_show = true
     },
     go_14(){
-      this.fadeOut("background_1")
       this.image_13_1_1_show = false
       this.image_13_1_2_show = false
       this.image_13_2_1_show = false
       this.image_13_2_2_show = false
-      setTimeout(() => {router.replace("/14")}, 1000)
+      setTimeout(() => {this.image_14_1_show = true}, 200)
+      let audio = document.getElementById("koong_sound");
+      audio.play()
+    },
+
+    go_15(){
+      this.fadeOut("background_1")
+      setTimeout(() => {router.replace("/14")}, 500)
     }
 
 
   },
   data() {
     return {
+      btn_interval: null,
+
       vol: 0.2,
       interval: 200,
 
@@ -510,6 +543,8 @@ export default {
       image_10_6_show:false,
 
       image_11_1_show:false,
+      image_11_2_show:false,
+      image_11_2_show_btn: false,
 
       image_12_1_show:false,
       image_12_2_show:false,
@@ -528,6 +563,8 @@ export default {
 
       image_13_2_1_show:false,
       image_13_2_2_show:false,
+
+      image_14_1_show: false,
 
     }
   },
@@ -732,6 +769,12 @@ export default {
 
 #cartoon_11_img1 {
   z-index: 110;
+}
+#cartoon_11_img2 {
+  z-index: 111;
+}
+#cartoon_11_img3 {
+  z-index: 112;
 }
 
 

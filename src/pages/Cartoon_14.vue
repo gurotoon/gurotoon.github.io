@@ -1,11 +1,6 @@
 <template>
   <div>
-    <img @click="go_15" v-show="image_14_1_show" class="img_full" id="cartoon_14_img1" alt="cartoon1_back" src="../assets/images/background/3화_14.jpg">
-
-
-    <transition name="fade">
-      <img @click="showImage_15_2" class="img_full" v-show="image_15_1_show" id="cartoon_15_img1" alt="cartoon1_back" src="../assets/images/background/3화_2_수정(1).jpg">
-    </transition>
+    <img @click="showImage_15_2" class="img_full" v-show="image_15_1_show" id="cartoon_15_img1" alt="cartoon1_back" src="../assets/images/background/3화_2_수정(1).jpg">
     <transition name="fade">
       <img @click="showImage_15_3" class="img_full" v-show="image_15_2_show" id="cartoon_15_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_2수정(2).png">
     </transition>
@@ -34,25 +29,28 @@
       <img @click="go_19" class="img_full" v-show="image_18_1_show" id="cartoon_18_img1" alt="cartoon1_back" src="../assets/images/scripts/3화_18.png">
     </transition>
 
-    <transition name="fade">
+    <transition name="fades">
       <img @click="showImage_19_2" class="img_full" v-show="image_19_1_show" id="cartoon_19_img1" alt="cartoon1_back" src="../assets/images/background/3화_19(1).jpg">
     </transition>
-    <transition name="fade">
+    <transition name="fades">
       <img @click="go_20" class="img_full" v-show="image_19_2_show" id="cartoon_19_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_19(2)_수정.png">
     </transition>
 
-    <transition name="fade">
+    <transition name="fades">
       <img @click="showImage_20_2" class="img_full" v-show="image_20_1_show" id="cartoon_20_img1" alt="cartoon1_back" src="../assets/images/background/3화_20(1).jpg">
     </transition>
-    <transition name="fade">
-      <img @click="showImage_20_3" class="img_full" v-show="image_20_2_show" id="cartoon_20_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_20(3)_수정.png">
+    <transition name="fades">
+      <img @click="showImage_20_3" class="img_full" v-show="image_20_2_show" id="cartoon_20_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_20(2)_수정.png">
     </transition>
-    <transition name="fade">
-      <img @click="go_21" class="img_full" v-show="image_20_3_show" id="cartoon_20_img3" alt="cartoon1_back" src="../assets/images/scripts/3화_20(4)_수정.png">
+    <transition name="fades">
+      <img @click="showImage_20_4" class="img_full" v-show="image_20_3_show" id="cartoon_20_img3" alt="cartoon1_back" src="../assets/images/scripts/3화_20(3)_수정.png">
+    </transition>
+    <transition name="fades">
+      <img @click="go_21" class="img_full" v-show="image_20_4_show" id="cartoon_20_img4" alt="cartoon1_back" src="../assets/images/scripts/3화_20(4)_수정.png">
     </transition>
 
-    <transition name="fade">
-      <img @click="go_22" class="img_full" v-show="image_21_1_show" id="cartoon_21_img1" alt="cartoon1_back" src="../assets/images/background/3화_21.jpg">
+    <transition name="fades">
+      <img @click="go_22" class="img_full" v-show="image_21_1_show" id="cartoon_21_img1" alt="cartoon1_back" src="../assets/images/background/21컷_수정.jpg">
     </transition>
     <button @click="go_site" class="btn" v-show="image_21_1_show" id="btn_21_1" alt="btn_21_1"></button>
 
@@ -77,6 +75,8 @@
     <audio id="alarm_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%9D%A0%EB%A7%81.mp3"></audio>
     <audio id="alarm_sound2" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%9D%A0%EB%A7%81.mp3"></audio>
     <audio id="background_2" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%B0%EA%B2%BD2.mp3"></audio>
+    <audio id="open_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%AC%B8%EC%97%AC%EB%8A%94%EC%86%8C%EB%A6%AC.mp3"></audio>
+
   </div>
 </template>
 
@@ -99,7 +99,6 @@ export default {
           }, this.interval);
     },
     go_15(){
-      this.fadeIn("background_2")
       this.image_14_1_show = false
       setTimeout(() => {this.image_15_1_show = true}, 200)
     },
@@ -119,6 +118,8 @@ export default {
       this.image_15_1_show = false
       this.image_15_3_show = false
       setTimeout(() => {this.image_16_1_show = true}, 200)
+      let audio = document.getElementById("open_sound");
+      setTimeout(() => audio.play(), 200)
     },
 
     showImage_16_2(){
@@ -143,6 +144,7 @@ export default {
     },
 
     go_19(){
+      this.image_17_1_show = false
       this.image_18_1_show = false
       setTimeout(() => {this.image_19_1_show = true}, 200)
     },
@@ -162,10 +164,14 @@ export default {
     showImage_20_3(){
       this.image_20_3_show = true
     },
+    showImage_20_4(){
+      this.image_20_4_show = true
+    },
     go_21(){
       this.image_20_1_show = false
       this.image_20_2_show = false
       this.image_20_3_show = false
+      this.image_20_4_show = false
       this.image_21_1_show = true
     },
 
@@ -190,7 +196,7 @@ export default {
       Kakao.Link.sendDefault({
         objectType: 'text',
         text:
-            '구로툰 공유',
+            this.send_text,
         link: {
           mobileWebUrl:
               'https://gurotoon.github.io/',
@@ -204,12 +210,12 @@ export default {
       console.log(Kakao.isInitialized())
       Kakao.Story.share({
         url: 'https://gurotoon.github.io/',
-        text: '구로툰 공유'
+        text: this.send_text,
       });
     },
 
     shareTwitter() {
-      let sendText = "구로툰"; // 전달할 텍스트
+      let sendText = this.send_text; // 전달할 텍스트
       let sendUrl = "https://gurotoon.github.io/"; // 전달할 URL
       window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
     },
@@ -260,16 +266,24 @@ export default {
       image_20_1_show: false,
       image_20_2_show: false,
       image_20_3_show: false,
+      image_20_4_show: false,
 
       image_21_1_show: false,
 
       image_22_1_show: false,
 
+      send_text: "<구로툰 - 직장내괴롭힘편👔>\n" +
+          "직장 내 괴롭힘으로 \n" +
+          "어려움을 겪고 있는 코사원!😰😵‍💫\n" +
+          "과연 문제를 어떻게 해결할 수 있을까요? \n" +
+          "우리의 코사원이 평화로운 회사 생활로 \n" +
+          "돌아갈 수 있도록 도와주세요! 🙏",
 
     }
   },
   mounted() {
-    this.image_14_1_show = true
+    this.image_15_1_show = true
+    this.fadeIn("background_2")
     Kakao.init("7c5082e78920d40539efce8db5b36c27")
   }
 }
@@ -292,7 +306,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 5%;
-  top: 73%;
+  top: 77%;
   left: 50%;
   transform: translateX(-50%);
   background: transparent;
