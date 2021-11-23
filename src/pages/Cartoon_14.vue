@@ -186,6 +186,7 @@ export default {
     },
 
     shareKakao () {
+      console.log(Kakao.isInitialized())
       Kakao.Link.sendDefault({
         objectType: 'text',
         text:
@@ -200,6 +201,7 @@ export default {
     },
 
     shareKakaoStory () {
+      console.log(Kakao.isInitialized())
       Kakao.Story.share({
         url: 'https://gurotoon.github.io/',
         text: '구로툰 공유'
@@ -268,6 +270,7 @@ export default {
   },
   mounted() {
     this.image_14_1_show = true
+    Kakao.init("7c5082e78920d40539efce8db5b36c27")
   }
 }
 </script>
