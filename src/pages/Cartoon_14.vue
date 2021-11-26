@@ -203,6 +203,7 @@ export default {
           webUrl:
               'https://gurotoon.github.io/',
         },
+        buttonTitle: '도와주러 가기'
       })
     },
 
