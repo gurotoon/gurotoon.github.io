@@ -33,20 +33,20 @@
       <img @click="showImage_19_2" class="img_full" v-show="image_19_1_show" id="cartoon_19_img1" alt="cartoon1_back" src="../assets/images/background/3화_19(1).jpg">
     </transition>
     <transition name="fades">
-      <img @click="go_20" class="img_full" v-show="image_19_2_show" id="cartoon_19_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_19(2)_수정.png">
+      <img @click="go_20" class="img_full" v-show="image_19_2_show" id="cartoon_19_img2" alt="cartoon1_back" src="../assets/images/background/3화_19(2).jpg">
     </transition>
 
     <transition name="fades">
       <img @click="showImage_20_2" class="img_full" v-show="image_20_1_show" id="cartoon_20_img1" alt="cartoon1_back" src="../assets/images/background/3화_20(1).jpg">
     </transition>
     <transition name="fades">
-      <img @click="showImage_20_3" class="img_full" v-show="image_20_2_show" id="cartoon_20_img2" alt="cartoon1_back" src="../assets/images/scripts/3화_20(2)_수정.png">
+      <img @click="showImage_20_3" class="img_full" v-show="image_20_2_show" id="cartoon_20_img2" alt="cartoon1_back" src="../assets/images/background/3화_20(2).jpg">
     </transition>
     <transition name="fades">
-      <img @click="showImage_20_4" class="img_full" v-show="image_20_3_show" id="cartoon_20_img3" alt="cartoon1_back" src="../assets/images/scripts/3화_20(3)_수정.png">
+      <img @click="showImage_20_4" class="img_full" v-show="image_20_3_show" id="cartoon_20_img3" alt="cartoon1_back" src="../assets/images/background/3화_20(3).jpg">
     </transition>
     <transition name="fades">
-      <img @click="go_21" class="img_full" v-show="image_20_4_show" id="cartoon_20_img4" alt="cartoon1_back" src="../assets/images/scripts/3화_20(4)_수정.png">
+      <img @click="go_21" class="img_full" v-show="image_20_4_show" id="cartoon_20_img4" alt="cartoon1_back" src="../assets/images/background/3화_20(4).jpg">
     </transition>
 
     <transition name="fades">
@@ -74,7 +74,6 @@
 
     <audio id="alarm_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%9D%A0%EB%A7%81.mp3"></audio>
     <audio id="alarm_sound2" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%9D%A0%EB%A7%81.mp3"></audio>
-    <audio id="background_2" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%B0%EA%B2%BD2.mp3"></audio>
     <audio id="open_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%AC%B8%EC%97%AC%EB%8A%94%EC%86%8C%EB%A6%AC.mp3"></audio>
 
   </div>
@@ -84,28 +83,14 @@
 export default {
   name: "Cartoon_14",
   methods: {
-    fadeIn(element){
-      let audio = document.getElementById(element);
-      audio.play()
-      audio.volume = 0
-      let fadein = setInterval(
-          function() {
-            if (audio.volume < 0.95) {
-              audio.volume = audio.volume + 0.05;
-            }
-            else {
-              clearInterval(fadein);
-            }
-          }, this.interval);
-    },
     go_15(){
       this.image_14_1_show = false
       setTimeout(() => {this.image_15_1_show = true}, 200)
     },
 
     showImage_15_2(){
-      let audio = document.getElementById("alarm_sound");
-      audio.play()
+      let audio2 = document.getElementById("alarm_sound");
+      audio2.play()
       this.image_15_2_show = true
     },
     showImage_15_3(){
@@ -284,7 +269,6 @@ export default {
   },
   mounted() {
     this.image_15_1_show = true
-    this.fadeIn("background_2")
     Kakao.init("7c5082e78920d40539efce8db5b36c27")
   }
 }

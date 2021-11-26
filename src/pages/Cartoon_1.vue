@@ -186,7 +186,7 @@
     <audio id="kakao_sound_3" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%B9%B4%ED%86%A1+%EC%B1%84%ED%8C%85%EC%9D%8C.mp3"></audio>
 
     <audio id="noise_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%86%8C%EC%9D%8C.mp3"></audio>
-    <audio id="koong_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%BF%B5%EC%86%8C%EB%A6%AC.mp3"></audio>
+    <audio id="koong_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EC%BF%B5%EC%86%8C%EB%A6%AC_%EC%88%98%EC%A0%95.mp3"></audio>
     <audio id="dal_sound" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%8B%AC%EA%B7%B8%EB%9D%BD%EC%86%8C%EB%A6%AC.mp3"></audio>
 
   </div>
@@ -313,7 +313,10 @@ export default {
     },
 
     showImage_5_2(){
-      this.image_5_2_show = true
+      if(!this.changed_5){
+        this.changed_5 = true
+        this.image_5_2_show = true
+      }
     },
     showImage_5_3(){
       this.image_5_3_show = true
@@ -330,19 +333,34 @@ export default {
     goback_5(){
       let audio = document.getElementById("walk_sound");
       audio.play()
-      this.return_page_show = false
+
+      this.image_5_1_show = false
+      this.image_5_2_show = false
+      this.image_5_3_show = false
+      this.image_5_4_show = false
       this.image_5_5_show = false
+
+      this.return_page_show = false
       this.return_page_show = true
-      setTimeout(() => {this.return_page_show = false}, 2000)
+      setTimeout(() => {
+        this.return_page_show = false
+        this.image_7_1_show = true
+        this.fadeOut("noise_sound")
+        this.fadeIn("background_1_2")
+      }, 3000)
     },
     go_7(){
-      this.fadeOut("noise_sound")
-      this.fadeIn("background_1_2")
-      this.image_5_1_show = false
       this.image_5_5_show = false
+
+      setTimeout(() => {
+        this.image_5_1_show = false
+        this.image_7_1_show = true
+        this.fadeOut("noise_sound")
+        this.fadeIn("background_1_2")
+      }, 3000)
+
       let audio = document.getElementById("dal_sound");
       audio.play()
-      setTimeout(() => {this.image_7_1_show = true}, 200)
     },
 
     go_8(){
@@ -487,7 +505,9 @@ export default {
 
     go_15(){
       this.fadeOut("background_1")
-      setTimeout(() => {router.replace("/14")}, 500)
+      let audio1 = document.getElementById("background_2");
+      audio1.play()
+      router.replace('/14')
     }
 
 
@@ -498,6 +518,8 @@ export default {
 
       vol: 0.2,
       interval: 200,
+
+      changed_5: false,
 
       image_1_1_show: false,
       image_1_2_show: false,

@@ -1,6 +1,6 @@
 <template>
   <div @click="click">
-    <img class="img_full" id="main_img" alt="cartoon1_back" src="../assets/images/background/0컷배치예시.jpg">
+    <img class="img_full_2" id="main_img" alt="cartoon1_back" src="../assets/images/background/0컷배치예시.jpg">
   </div>
 </template>
 
@@ -14,7 +14,11 @@ export default {
       router.push({ path: '/1'});
     }
   },
-
+  mounted() {
+    window.addEventListener('load',function(){
+      setTimeout(scrollTo,0,0,1);
+    },false);
+  }
 }
 </script>
 

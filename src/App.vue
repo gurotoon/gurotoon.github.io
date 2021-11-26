@@ -3,6 +3,7 @@
     <vue-page-transition name="fade">
       <router-view/>
     </vue-page-transition>
+    <audio id="background_2" src="https://gurotoon2021.s3.ap-northeast-2.amazonaws.com/%EB%B0%B0%EA%B2%BD2.mp3"></audio>
   </div>
 </template>
 
@@ -12,6 +13,11 @@ export default {
   name: 'App',
   components: {
 
+  },
+  mounted() {
+    window.addEventListener('load',function(){
+      setTimeout(scrollTo,0,0,1);
+    },false);
   }
 }
 </script>
@@ -42,6 +48,20 @@ form,fieldset,input,textarea,p,blockquote,th,td {
   -ms-user-select: none;
   user-select: none;
 }
+
+.img_full_2{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s;
